@@ -32,7 +32,7 @@ function Home() {
             <span>Slides</span>
             <RiBookMarkLine size={iconSize}></RiBookMarkLine>
           </a>
-          <a href="https://fire-taurus-8fa.notion.site/M1-68b08d7dd82a4be69e509731a753aa44" target={'_blank'} className={`${s.utilityContainer} ${s.width}`}>
+          <a href="https://fire-taurus-8fa.notion.site/RESUMENES-BOOTCAMP-87677d2551bc4a14b015879502ee6686" target={'_blank'} className={`${s.utilityContainer} ${s.width}`}>
             <span>Resúmenes</span>
             <RiSlideshowLine size={iconSize}></RiSlideshowLine>
           </a>
