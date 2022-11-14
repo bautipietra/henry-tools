@@ -1,3 +1,5 @@
+@use '../../m.scss';
+
 .noCP {
   display: flex;
   justify-content: center;
@@ -33,6 +35,11 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+
+    @include m.mq {
+      gap: 15px;
+      flex-flow: column;
+    }
 
     p {
       font-weight: bolder;
