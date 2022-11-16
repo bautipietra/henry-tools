@@ -7,18 +7,6 @@ function Modulo() {
   const { id } = useParams()
 
   var data = [
-    [
-      {
-        name: 'Challenge 1',
-        module: 0,
-        cp: 1,
-      },
-      {
-        name: 'Challenge 2',
-        module: 0,
-        cp: 2,
-      },
-    ],
 
     [
       {
@@ -31,44 +19,63 @@ function Modulo() {
         module: 1,
         cp: 2,
       },
-      {
-        name: 'M1 3',
-        module: 1,
-        cp: 3,
-      },
     ],
 
     [
       {
-        name: 'M2 Henry Palooza',
+        name: 'M2 1',
         module: 2,
         cp: 1,
       },
       {
-        name: 'M2 Houses',
+        name: 'M2 2',
         module: 2,
         cp: 2,
       },
       {
-        name: 'M2 Game of Thrones',
+        name: 'M2 3',
         module: 2,
         cp: 3,
       },
+      {
+        name: 'M2 4',
+        module: 2,
+        cp: 4,
+      },
+      {
+        name: 'M2 5',
+        module: 2,
+        cp: 5,
+      },
+      {
+        name: 'M2 6',
+        module: 2,
+        cp: 6,
+      },
     ],
-    [],
-    [],
+    [{
+      name: 'M3 1',
+      module: 3,
+      cp: 1,
+    },
+    {
+      name: 'M3 2',
+      module: 3,
+      cp: 2,
+    },],
+    []
   ]
 
-  if (!data[id]) return <div className={s.noCP}>
+  if (!data[id - 1]) return <div className={s.noCP}>
     <p>Este modulo no existe 🤔</p>
   </div>
 
-  if (data[id].length) {
+  if (data[id - 1].length) {
     return (
       <div className={s.cpContainer}>
         {
 
-          data[id].map(cp => {
+          data[id - 1].map(cp => {
 
             return <div key={cp.name} className={s.cp}>
               <p>{cp.name}</p>

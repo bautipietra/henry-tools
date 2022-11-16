@@ -20,6 +20,7 @@ body {
 
 html {
   font-family: 'Roboto Mono', monospace;
+  color: #000;
 }
 
 body {
@@ -41,4 +42,9 @@ body {
 * {
   margin: 0;
   padding: 0;
+}
+
+p,
+span {
+  font-size: var(--font-size-base);
 }

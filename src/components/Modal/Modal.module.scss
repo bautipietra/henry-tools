@@ -1,0 +1,51 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0009;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-flow: column;
+
+    p {
+      padding: 20px 0;
+    }
+
+    .modalTitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid #e5e5e5;
+
+      h6 {
+        font-size: var(--font-size-md);
+      }
+
+      svg {
+        cursor: pointer;
+        transition: 0.2s;
+        padding: 5px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: var(--grey-light);
+        }
+      }
+
+    }
+  }
+}

@@ -4,16 +4,37 @@ import Styles from './app.scss'
 import Footer from "./components/Footer/Footer"
 import Home from "./components/Home/Home"
 import Modulo from "./components/Modulo/Modulo"
+import Modal from "./components/Modal/Modal"
+import { useState } from "react"
 
 function App() {
+
+  const [modal, setModal] = useState({
+    state: false,
+    num: Number(),
+  })
+
+  const modalHandler = (num) => {
+    setModal({
+      state: true,
+      num: num
+    })
+  }
+
+  const closeModal = () => {
+    setModal({
+      state: false,
+      num: Number(),
+    })
+  }
 
   return (
     <div className="App">
       <Nav></Nav>
       <Routes>
-        <Route exact path="/" element={<Home></Home>}></Route>
+        <Route exact path="/" element={<><Home modal={modalHandler}></Home><Modal modal={modal} close={closeModal}></Modal></>}></Route>
         <Route exact path="/modulo/:id" element={<Modulo></Modulo>}></Route>
-        <Route path="*" element={<Home></Home>}></Route>
+        <Route path="*" element={<><Home modal={modalHandler}></Home><Modal modal={modal} close={closeModal}></Modal></>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
