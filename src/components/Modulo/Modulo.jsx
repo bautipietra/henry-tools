@@ -9,6 +9,10 @@ function Modulo() {
   var data = [
 
     [
+
+    ],
+
+    [
       {
         name: 'M1 1',
         module: 1,
@@ -66,16 +70,16 @@ function Modulo() {
     []
   ]
 
-  if (!data[id - 1]) return <div className={s.noCP}>
+  if (!data[id]) return <div className={s.noCP}>
     <p>Este modulo no existe 🤔</p>
   </div>
 
-  if (data[id - 1].length) {
+  if (data[id].length) {
     return (
       <div className={s.cpContainer}>
         {
 
-          data[id - 1].map(cp => {
+          data[id].map(cp => {
 
             return <div key={cp.name} className={s.cp}>
               <p>{cp.name}</p>

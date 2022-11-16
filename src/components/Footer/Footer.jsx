@@ -16,6 +16,10 @@ function Footer() {
         <p>
           Website made with 💛 by <a href="https://www.linkedin.com/in/bautista-pietraroia-b79271214/" target={'_blank'}>Bautista Pietraroia</a>
         </p>
+        <br />
+        <p>
+          Página <strong>NO</strong> oficial de Soy Henry
+        </p>
       </div>
     </footer>
   )

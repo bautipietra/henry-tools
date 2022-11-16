@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer"
 import Home from "./components/Home/Home"
 import Modulo from "./components/Modulo/Modulo"
 import Modal from "./components/Modal/Modal"
+import Announce from "./components/Announce/Announce"
 import { useState } from "react"
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <div className="App">
+      <Announce></Announce>
       <Nav></Nav>
       <Routes>
         <Route exact path="/" element={<><Home modal={modalHandler}></Home><Modal modal={modal} close={closeModal}></Modal></>}></Route>

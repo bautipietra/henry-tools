@@ -1,7 +1,8 @@
 import React from 'react'
 import s from './Home.module.scss'
 import { RiBookMarkLine, RiSlideshowLine, RiCalendar2Line, RiSuitcaseLine, RiStickyNoteLine } from "react-icons/ri";
-import { BsInfoLg } from 'react-icons/bs'
+import { BsInfoLg, BsLink45Deg } from 'react-icons/bs'
+import { FiSettings } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom';
 
 function Home({ modal }) {
@@ -10,6 +11,17 @@ function Home({ modal }) {
 
   return (
     <div className={s.home}>
+
+      {/* Links personalizados */}
+      <div className={s.utilities}>
+        <h4><BsInfoLg onClick={() => modal(0)}></BsInfoLg>Links personalizados<FiSettings></FiSettings></h4>
+        <div className={s.utilitiesContainer}>
+          <a href="https://www.linkedin.com/in/bautista-pietraroia-b79271214/" target={'_blank'} className={`${s.utilityContainer} ${s.width}`}>
+            <span>Ejemplo</span>
+            <BsLink45Deg size={iconSize}></BsLink45Deg>
+          </a>
+        </div>
+      </div>
 
       {/* Links de Henry */}
       <div className={s.utilities}>
@@ -46,6 +58,11 @@ function Home({ modal }) {
         <h4><BsInfoLg onClick={() => modal(3)}></BsInfoLg>Checkpoints</h4>
         <div className={s.utilitiesContainer}>
 
+          <NavLink to={'/modulo/0'} className={`${s.utilityContainer} ${s.dark}`}>
+            <span>Prep</span>
+            <RiStickyNoteLine size={iconSize}></RiStickyNoteLine>
+          </NavLink>
+
           <NavLink to={'/modulo/1'} className={`${s.utilityContainer} ${s.dark}`}>
             <span>M1</span>
             <RiStickyNoteLine size={iconSize}></RiStickyNoteLine>
@@ -62,7 +79,7 @@ function Home({ modal }) {
           </NavLink>
 
           <NavLink to={'/modulo/4'} className={`${s.utilityContainer} ${s.dark}`}>
-            <span>M4</span>
+            <span>PI</span>
             <RiStickyNoteLine size={iconSize}></RiStickyNoteLine>
           </NavLink>
 

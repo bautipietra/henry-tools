@@ -6,6 +6,10 @@ function Modal({ modal, close }) {
 
   var data = [
     {
+      title: 'Links personalizados',
+      description: `Aquí podrás agregar links a todo lo que necesites, sin necesidad de que sea agregado oficialmente a la página, igualmente, si consideras que hay un link que le podría servir al resto de los alumnos, puedes recomendarmelo por MP en mi linkedin!.`,
+    },
+    {
       title: 'Links de Henry',
       description: `Aquí aparecerán unicamente redirecciones hacia sitios oficiales del bootcamp.`,
     },
@@ -24,10 +28,10 @@ function Modal({ modal, close }) {
       <div className={s.modalContainer}>
         <div className={s.modal}>
           <div className={s.modalTitle}>
-            <h6>{data[modal.num - 1].title}</h6>
+            <h6>{data[modal.num].title}</h6>
             <AiOutlineClose onClick={() => close()} size='35px'></AiOutlineClose>
           </div>
-          <p id='description'>{data[modal.num - 1].description}</p>
+          <p id='description'>{data[modal.num].description}</p>
         </div>
       </div>
     )
