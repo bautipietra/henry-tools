@@ -4,6 +4,7 @@ import { RiBookMarkLine, RiSlideshowLine, RiCalendar2Line, RiSuitcaseLine, RiSti
 import { BsInfoLg, BsLink45Deg } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom';
+import CustomLinks from './CustomLinks';
 
 function Home({ modal }) {
 
@@ -13,15 +14,7 @@ function Home({ modal }) {
     <div className={s.home}>
 
       {/* Links personalizados */}
-      <div className={s.utilities}>
-        <h4><BsInfoLg onClick={() => modal(0)}></BsInfoLg>Links personalizados<FiSettings></FiSettings></h4>
-        <div className={s.utilitiesContainer}>
-          <a href="https://www.linkedin.com/in/bautista-pietraroia-b79271214/" target={'_blank'} className={`${s.utilityContainer} ${s.width}`}>
-            <span>Ejemplo</span>
-            <BsLink45Deg size={iconSize}></BsLink45Deg>
-          </a>
-        </div>
-      </div>
+      <CustomLinks modal={modal}></CustomLinks>
 
       {/* Links de Henry */}
       <div className={s.utilities}>

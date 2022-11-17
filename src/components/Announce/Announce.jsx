@@ -4,8 +4,9 @@ import s from './Announce.module.scss'
 
 function Announce() {
 
+  const dateLocal = new Date("November 21, 2022 24:00:00");
   const oneHour = new Date(
-    new Date("November 21, 2022 21:00:00")
+    new Date(dateLocal.getTime() - dateLocal.getTimezoneOffset() * 60 * 1000)
   ).toISOString();
 
   return (

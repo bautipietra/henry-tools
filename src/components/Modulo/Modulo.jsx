@@ -9,7 +9,16 @@ function Modulo() {
   var data = [
 
     [
-
+      {
+        name: 'Prep 1',
+        module: 0,
+        cp: 1,
+      },
+      {
+        name: 'Prep 2',
+        module: 0,
+        cp: 2,
+      },
     ],
 
     [
@@ -67,7 +76,19 @@ function Modulo() {
       module: 3,
       cp: 2,
     },],
-    []
+
+    [
+      {
+        name: 'Food API',
+        module: 4,
+        cp: 1,
+      },
+      {
+        name: 'Pokemon API',
+        module: 4,
+        cp: 2,
+      },
+    ]
   ]
 
   if (!data[id]) return <div className={s.noCP}>
@@ -75,6 +96,7 @@ function Modulo() {
   </div>
 
   if (data[id].length) {
+
     return (
       <div className={s.cpContainer}>
         {
@@ -90,7 +112,9 @@ function Modulo() {
         }
       </div >
     )
-  } else {
+  }
+
+  else {
     return (
       <div className={s.noCP}>
         <p>Aun no tenemos checkpoints de este modulo 😔</p>

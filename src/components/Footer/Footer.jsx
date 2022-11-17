@@ -14,7 +14,7 @@ function Footer() {
       </div>
       <div className={s.credits}>
         <p>
-          Website made with 💛 by <a href="https://www.linkedin.com/in/bautista-pietraroia-b79271214/" target={'_blank'}>Bautista Pietraroia</a>
+          Website made with 💛 by <a href="https://www.linkedin.com/in/bautista-pietraroia/" target={'_blank'}>Bautista Pietraroia</a>
         </p>
         <br />
         <p>

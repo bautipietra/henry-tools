@@ -14,7 +14,7 @@ function Nav() {
         <NavLink to={'/'} className={s.txtLink}>Tools</NavLink>
       </div>
       <div className={s.credits}>
-        <a href="https://www.linkedin.com/in/bautista-pietraroia-b79271214/" target='_blank'>
+        <a href="https://www.linkedin.com/in/bautista-pietraroia/" target='_blank'>
           <img src={BautistaPietraroia} alt="Bautista Pietraroia" />
         </a>
       </div>

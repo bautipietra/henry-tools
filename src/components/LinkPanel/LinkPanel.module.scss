@@ -1,0 +1,119 @@
+.panelContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0009;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .panel {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-flow: column;
+    overflow-y: scroll;
+    max-height: 80%;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .panelTitle {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid #e5e5e5;
+
+      h6 {
+        font-size: var(--font-size-md);
+      }
+
+      svg {
+        cursor: pointer;
+        transition: 0.2s;
+        padding: 5px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: var(--grey-light);
+        }
+      }
+
+    }
+
+    form {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 20px;
+      display: flex;
+      flex-flow: column;
+      gap: 20px;
+
+      .error {
+        font-size: var(--font-size-sm);
+        color: red;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        border: solid 1px #e5e5e5;
+      }
+
+      input[type=submit] {
+        background-color: var(--yellow-henry);
+        width: fit-content;
+        margin: auto;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+        padding: 10px 40px;
+
+        &:hover {
+          filter: brightness(0.95);
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      padding: 20px;
+      gap: 20px;
+
+      div {
+        text-align: center;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 100%;
+        background-color: var(--grey-light);
+        border-radius: 5px;
+        padding: 10px;
+        gap: 10px;
+        align-items: center;
+
+        svg {
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            fill: red;
+          }
+        }
+      }
+    }
+
+  }
+}

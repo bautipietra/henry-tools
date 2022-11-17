@@ -41,13 +41,17 @@
 
     .utilitiesContainer {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       gap: 20px;
       overflow-x: scroll;
       padding: 20px 0;
       /* Hide scrollbar */
       -ms-overflow-style: none;
       scrollbar-width: none;
+
+      @include m.mq {
+        flex-flow: row nowrap;
+      }
 
       &::-webkit-scrollbar {
         display: none;
