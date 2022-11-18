@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from './LinkPanel.module.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GoTrashcan } from 'react-icons/go'
@@ -16,18 +16,38 @@ function LinkPanel({ close, link, links, setLinks }) {
   const submitHandler = (e) => {
     e.preventDefault()
     if (validate.nameV && validate.urlV) {
+
       setLinks([
         ...links, {
           name: `${validate.name}`,
           url: `${validate.url}`,
         }
       ])
+
+      const name = document.querySelector('#nameInput')
+      const url = document.querySelector('#urlInput')
+      name.value = ''
+      url.value = ''
+      document.querySelector('#nameError').textContent = 'Ingresa un nombre'
+      document.querySelector('#urlError').textContent = 'Ingresa una URL valida'
+      setValidate({
+        nameV: false,
+        urlV: false,
+        name: '',
+        url: '',
+      })
     }
-    console.log(links);
   }
 
   function nameHandler(e) {
-    if (e.target.value.length < 1) {
+    const index = links.findIndex(object => {
+      return object.name === e.target.value;
+    });
+    if (index != -1) {
+      setValidate({ ...validate, nameV: false })
+      document.querySelector('#nameError').textContent = 'Ese nombre ya esta en uso'
+    }
+    else if (e.target.value.length < 1) {
       setValidate({ ...validate, nameV: false })
       document.querySelector('#nameError').textContent = 'Ingresa un nombre'
     }
@@ -38,7 +58,7 @@ function LinkPanel({ close, link, links, setLinks }) {
   }
 
   function urlHandler(e) {
-    console.log(e.target.value);
+
     var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
       '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -46,19 +66,23 @@ function LinkPanel({ close, link, links, setLinks }) {
       '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
       '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     setValidate({ ...validate, urlV: pattern.test(e.target.value), url: `${e.target.value}` })
-    if (!validate.urlV) document.querySelector('#urlError').textContent = 'Ingresa una URL valida'
-    else if (!validate.url.startsWith('http')) { setValidate({ ...validate, urlV: pattern.test(e.target.value), url: `https://${e.target.value}` }) }
-    else document.querySelector('#urlError').textContent = ''
+    if (!validate.url.startsWith('http')) setValidate({ ...validate, urlV: pattern.test(e.target.value), url: `https://${e.target.value}` })
+    if (pattern.test(e.target.value)) document.querySelector('#urlError').textContent = ''
+    else document.querySelector('#urlError').textContent = 'Ingresa una URL valida'
+
   }
 
   function deleteHandler(name) {
-    const index = links.findIndex(object => {
-      return object.name == name;
-    });
-    setLinks([
-      ...links.slice(index - 1, index)
-    ])
+
+    setLinks(
+      links.filter(obj => {
+        console.log(name);
+        console.log(obj.name);
+        return obj.name !== name
+      })
+    )
   }
+
 
   return (
 
@@ -71,9 +95,9 @@ function LinkPanel({ close, link, links, setLinks }) {
         </div>
 
         <form action="">
-          <input type="text" name='name' placeholder='Ingresa el nombre' onChange={nameHandler} required autoComplete='false' />
+          <input type="text" name='name' placeholder='Ingresa el nombre' onChange={nameHandler} required autoComplete='false' id='nameInput' />
           <span id='nameError' className={s.error} >Ingresa un nombre</span>
-          <input type="text" name='url' placeholder='Ingresa la URL' onChange={urlHandler} required autoComplete='false' />
+          <input type="text" name='url' placeholder='Ingresa la URL' onChange={urlHandler} required autoComplete='false' id='urlInput' />
           <span id='urlError' className={s.error} >Ingresa una URL valida</span>
           <input type="submit" onClick={submitHandler} value='Agregar' />
         </form>
