@@ -5,6 +5,7 @@ import { FiSettings } from 'react-icons/fi'
 import { useState } from 'react'
 import LinkPanel from '../LinkPanel/LinkPanel'
 import { useEffect } from 'react'
+import useLocalStorageState from 'use-local-storage-state'
 
 function CustomLinks({ modal }) {
 
@@ -16,8 +17,8 @@ function CustomLinks({ modal }) {
   const openPanel = () => setLinkPanel(true)
   const closePanel = () => setLinkPanel(false)
 
-  const [links, setLinks] = useState(
-    [
+  const [links, setLinks] = useLocalStorageState('links', {
+    defaultValue: [
 
       {
         name: 'Ejemplo',
@@ -25,7 +26,7 @@ function CustomLinks({ modal }) {
       },
 
     ]
-  )
+  })
 
   return (
     <div className={s.utilities}>
