@@ -66,7 +66,7 @@ function LinkPanel({ close, link, links, setLinks }) {
       '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
       '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     setValidate({ ...validate, urlV: pattern.test(e.target.value), url: `${e.target.value}` })
-    if (!validate.url.startsWith('http')) setValidate({ ...validate, urlV: pattern.test(e.target.value), url: `https://${e.target.value}` })
+    if (!e.target.value.startsWith('http')) setValidate({ ...validate, urlV: pattern.test(e.target.value), url: `https://${e.target.value}` })
     if (pattern.test(e.target.value)) document.querySelector('#urlError').textContent = ''
     else document.querySelector('#urlError').textContent = 'Ingresa una URL valida'
 
